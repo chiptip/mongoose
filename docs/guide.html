@@ -144,7 +144,7 @@ thing.save(); <span class="comment">// iAmNotInTheSchema is never saved to the d
 schema.path(<span class="string">'name'</span>).get(<span class="function"><span class="keyword">function</span> <span class="params">(v)</span> {</span>
   <span class="keyword">return</span> v + <span class="string">' is my name'</span>;
 });
-schema.set(<span class="string">'toJSON'</span>, { getters: <span class="literal">true</span> });
+schema.set(<span class="string">'toJSON'</span>, { getters: <span class="literal">true</span>, virtuals: <span class="literal">false</span> });
 <span class="keyword">var</span> M = mongoose.model(<span class="string">'Person'</span>, schema);
 <span class="keyword">var</span> m = <span class="keyword">new</span> M({ name: <span class="string">'Max Headroom'</span> });
 console.log(m.toObject()); <span class="comment">// { _id: 504e0cd7dd992d9be2f20b6f, name: 'Max Headroom' }</span>
