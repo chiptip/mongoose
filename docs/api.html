@@ -864,8 +864,11 @@ db.model(<span class="string">'Venue'</span>, <span class="keyword">new</span> S
     o.server.auto_reconnect = <span class="literal">true</span>;
   }
 
-  o.db = o.db || {};
+  o.db || (o.db = {});
   o.db.forceServerObjectId = <span class="literal">false</span>;
+
+  <span class="comment">// TODO default to true once the driver is fixed</span>
+  <span class="keyword">if</span> (!(<span class="string">'safe'</span> <span class="keyword">in</span> o.db)) o.db.safe = <span class="literal">false</span>;
 
   <span class="keyword">return</span> o;
 }</code></pre></div><div class="params"><h4>Parameters:</h4><ul><li><code>options</code><span class="types"> &lt;<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object">Object</a>&gt; </span><span></span></li></ul></div><div class="description"></div><hr class="private"></div><div class="item property public"><h3 id="connection_Connection-db"><a href="#connection_Connection-db">Connection#<span>db</span></a></h3><p>The mongodb.Db instance, set when the connection is opened</p><hr class=""></div><div class="item property public"><h3 id="connection_Connection-collections"><a href="#connection_Connection-collections">Connection#<span>collections</span></a></h3><p>A hash of the collections associated with this connection</p><hr class=""></div><div class="item property public"><h3 id="connection_Connection-readyState"><a href="#connection_Connection-readyState">Connection#<span>readyState</span></a></h3><p>Connection ready state</p>
